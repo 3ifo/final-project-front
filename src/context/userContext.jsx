@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import axios from "axios";
+import axios from "../library/axiosConfig";
 const { VITE_API_URL } = import.meta.env;
 import storage from "../hooks/storage";
 

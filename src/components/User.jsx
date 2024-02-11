@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useUser } from "../context/userContext";
 
 export default function ({ type }) {
   const title = type === "login" ? "Log in" : "Sign up";
@@ -34,7 +35,7 @@ export default function ({ type }) {
   return (
     <div>
       <h1>{title}</h1>
-      <form action="">
+      <form onSubmit={signUser}>
         <div>
           <label>Email</label>
           <input
@@ -42,6 +43,7 @@ export default function ({ type }) {
             value={formData.email}
             required
             type="email"
+            placeholder="Scrivi la tua email"
           />
         </div>
         <div>
