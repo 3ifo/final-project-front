@@ -53,6 +53,7 @@ export default function ({ type }) {
             value={formData.password}
             required
             type="password"
+            placeholder="Scrivi la tua password"
           />
         </div>
         {type === "signup" && (

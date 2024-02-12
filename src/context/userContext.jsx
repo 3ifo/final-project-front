@@ -3,8 +3,6 @@ import axios from "../library/axiosConfig";
 const { VITE_API_URL } = import.meta.env;
 import storage from "../hooks/storage";
 
-
-
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -12,6 +10,13 @@ export const UserProvider = ({ children }) => {
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const handleError = (error) => {
+    const message = error.response && error.response.data && error.response.data.message
+      ? error.response.data.message
+      : "Invalid email or password";
+    setError(message);
+  };
 
   const signUp = async (email, password) => {
     if (loading) return;
@@ -28,7 +33,7 @@ export const UserProvider = ({ children }) => {
       setUser(user);
     } catch (error) {
       console.error(error);
-      setError(error.response.user);
+      handleError(error);
     } finally {
       setLoading(false);
     }
@@ -49,7 +54,7 @@ export const UserProvider = ({ children }) => {
       setUser(user);
     } catch (error) {
       console.error(error);
-      setError(error.response.user);
+      handleError(error);
     } finally {
       setLoading(false);
     }
@@ -74,7 +79,7 @@ export const UserProvider = ({ children }) => {
 export const useUser = () => {
   const context = useContext(UserContext);
   if (context === undefined) {
-    throw new Error("Use a UserProvider.");
+    throw new Error("Use UserProvider.");
   }
   return context;
 };

@@ -1,5 +1,18 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUser } from "../context/userContext";
+import { FaHome } from "react-icons/fa";
+import { IoFitness } from "react-icons/io5";
+import { GiProgression } from "react-icons/gi";
+import { RiInformationFill } from "react-icons/ri";
+import { BiSolidContact } from "react-icons/bi";
+import "../index.css";
+
+
+
+
+
+
+
 
 const Navbar = () => {
 
@@ -13,23 +26,23 @@ const Navbar = () => {
         {user && (
           <>
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/"><span className="navbar-icons"><FaHome /></span></NavLink>
             </li>
 
             <li>
-              <NavLink to="mygymcards">MyGymCards</NavLink>
+              <NavLink to="mygymcards"> <span className="navbar-icons"><IoFitness /></span></NavLink>
             </li>
 
             <li>
-              <NavLink to="gymcardspro">GymCardsPro</NavLink>
+              <NavLink to="gymcardspro"><span className="navbar-icons"><GiProgression /></span></NavLink>
             </li>
 
             <li>
-              <NavLink to="aboutus">About us</NavLink>
+              <NavLink to="aboutus"><span className="navbar-icons"><RiInformationFill /></span></NavLink>
             </li>
 
             <li>
-              <NavLink to="contactus">Contact us</NavLink>
+              <NavLink to="contactus"><span className="navbar-icons"><BiSolidContact /></span></NavLink>
             </li>
             <li>
               <button onClick={()=> {

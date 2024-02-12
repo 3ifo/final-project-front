@@ -2,3 +2,25 @@
   list-style-type: none;
   text-decoration: none;
 }
+
+/* Navbar */
+
+.navbar-icons {
+  font-size: 2rem;
+  color: #93CEFF;
+}
+
+
+
+/* Create Modal css */
+
+#create-modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  gap: 0.3rem;
+  padding: 1rem 0rem;
+  margin: 1rem 10rem;
+}
