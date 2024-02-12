@@ -70,7 +70,7 @@ export default function ({ type }) {
           <button disabled={loading}>{title}</button>
         </div>
       </form>
-      {loading && <div>Loading, sorry for inconvenience</div>}
+      {loading && <div><img src="https://ieee-pdf-express.org/Content/images/loading.gif" alt="" /></div>}
       {error && <div>{error}</div>}
       {confirmPassError && <div>{confirmPassError}</div>}
     </div>

@@ -1,8 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useUser } from "../context/userContext";
 
 const Navbar = () => {
-  const { user } = useUser();
+
+  const navigate = useNavigate();
+
+  const { user, logOut } = useUser();
 
   return (
     <nav>
@@ -28,17 +31,30 @@ const Navbar = () => {
             <li>
               <NavLink to="contactus">Contact us</NavLink>
             </li>
+            <li>
+              <button onClick={()=> {
+                logOut();
+                navigate("/login")
+
+              }}>LogOut</button>
+            </li>
           </>
         )}
       </ul>
       {!user && (
         <>
           <li>
+            <button>
             <NavLink to="/signup">Sign Up</NavLink>
+            </button>
           </li>
+          
+          <button>
           <li>
             <NavLink to="/login">Log In</NavLink>
           </li>
+          </button>
+         
         </>
       )}
     </nav>

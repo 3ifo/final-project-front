@@ -27,10 +27,10 @@ function App() {
           path="/login"
           element={!user ? <User type="login" /> : <Navigate to="/" />}
         />
-        <Route path="mygymcards" element={<GymCards />} />
-        <Route path="gymcardspro" element={<GymCardsPro />} />
-        <Route path="aboutus" element={<AboutUs />} />
-        <Route path="contactus" element={<Contact />} />
+        <Route path="/mygymcards" element={!user ? <User type="login" /> : <GymCards/>} />
+        <Route path="/gymcardspro" element={<GymCardsPro />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/contactus" element={<Contact />} />
       </Routes>
     </>
   );
