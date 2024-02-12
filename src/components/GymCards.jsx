@@ -14,7 +14,7 @@ const GymCards = () => {
         method: "GET", 
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM5MGFhNjcwYTBhNzE3ZTk2ZDZjZTMiLCJpYXQiOjE3MDc3MDEwNzEsImV4cCI6MTcxMDI5MzA3MX0.xKKOhtm7TIfR-V7GOrrJ_f1K0CI09b37iPXT2EXNez0` 
+          "Authorization": `Bearer 
         }
       });
       const result = await response.json();
@@ -46,7 +46,7 @@ const GymCards = () => {
 
     axios.delete(`${VITE_API_URL}/trainingcards/${_id}`, {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM5MGFhNjcwYTBhNzE3ZTk2ZDZjZTMiLCJpYXQiOjE3MDc3MDEwNzEsImV4cCI6MTcxMDI5MzA3MX0.xKKOhtm7TIfR-V7GOrrJ_f1K0CI09b37iPXT2EXNez0`
+        Authorization: `Bearer 
       }
     }) 
       .then(() => {
@@ -62,7 +62,7 @@ const GymCards = () => {
   const saveCardChanges = () => {
     axios.patch(`${VITE_API_URL}/trainingcards/${editCard._id}`, editCard, {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM5MGFhNjcwYTBhNzE3ZTk2ZDZjZTMiLCJpYXQiOjE3MDc3MDEwNzEsImV4cCI6MTcxMDI5MzA3MX0.xKKOhtm7TIfR-V7GOrrJ_f1K0CI09b37iPXT2EXNez0`
+        Authorization: `
       }
     })
     .then(() => {
@@ -85,7 +85,7 @@ const GymCards = () => {
   const createGymCards = (obj)=> {
     axios.post (`${VITE_API_URL}/trainingcards/mygymcards`, obj, {
       headers: {
-        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM5MGFhNjcwYTBhNzE3ZTk2ZDZjZTMiLCJpYXQiOjE3MDc3MDEwNzEsImV4cCI6MTcxMDI5MzA3MX0.xKKOhtm7TIfR-V7GOrrJ_f1K0CI09b37iPXT2EXNez0`
+        authorization: `Bearer 
       } 
     })
     
