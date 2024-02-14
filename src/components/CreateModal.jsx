@@ -40,7 +40,7 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
 
     return (
         <>
-        <div id="create-modal-container">
+        <dialog  id="create-modal-container">
         <label>Name</label>
         <input 
         value={data.name}
@@ -115,7 +115,7 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
  <button onClick={()=> createGymCards(data)}>Create</button>
       <button onClick={()=> setOpenModal(false)}>Cancel</button>
      </div>
-        </div>
+        </dialog>
         </>
     )
 }

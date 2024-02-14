@@ -2,14 +2,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useUser } from "../context/userContext";
 import { FaHome } from "react-icons/fa";
 import { IoFitness } from "react-icons/io5";
-import { GiProgression } from "react-icons/gi";
 import { RiInformationFill } from "react-icons/ri";
 import { BiSolidContact } from "react-icons/bi";
+import { LiaQuestionSolid } from "react-icons/lia";
+import { GiHealthPotion } from "react-icons/gi";
+
+
 import "../index.css";
-
-
-
-
 
 
 
@@ -21,8 +20,10 @@ const Navbar = () => {
   const { user, logOut } = useUser();
 
   return (
+    <>
     <nav>
       <ul>
+        
         {user && (
           <>
             <li>
@@ -34,7 +35,7 @@ const Navbar = () => {
             </li>
 
             <li>
-              <NavLink to="gymcardspro"><span className="navbar-icons"><GiProgression /></span></NavLink>
+              <NavLink to="gymcardspro"><span className="navbar-icons"><GiHealthPotion /></span></NavLink>
             </li>
 
             <li>
@@ -44,33 +45,21 @@ const Navbar = () => {
             <li>
               <NavLink to="contactus"><span className="navbar-icons"><BiSolidContact /></span></NavLink>
             </li>
-            <li>
+
+          </>
+        )}
+      </ul>
+      <span id="usageHidden" className="navbar-icons"><LiaQuestionSolid /></span>
+    </nav>
+    <div className="logout-div">
               <button onClick={()=> {
                 logOut();
                 navigate("/login")
 
               }}>LogOut</button>
-            </li>
-          </>
-        )}
-      </ul>
-      {!user && (
-        <>
-          <li>
-            <button>
-            <NavLink to="/signup">Sign Up</NavLink>
-            </button>
-          </li>
-          
-          <button>
-          <li>
-            <NavLink to="/login">Log In</NavLink>
-          </li>
-          </button>
-         
-        </>
-      )}
-    </nav>
+            </div>
+    </>
+   
   );
 };
 
