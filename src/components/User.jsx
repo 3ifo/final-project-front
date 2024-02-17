@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function ({ type }) {
 
-  const navigate = useNavigate();
+ 
 
   const title = type === "login" ? "Log in" : "Sign up";
 
@@ -39,8 +39,9 @@ export default function ({ type }) {
 
   return (
     <div className="user-form-container">
-      <h1>{title}</h1>
+      
       <form onSubmit={signUser}>
+      <h1>{title}</h1>
         <div className="form-div">
           <label>Email</label>
           <input
@@ -48,7 +49,7 @@ export default function ({ type }) {
             value={formData.email}
             required
             type="email"
-            placeholder="Scrivi la tua email"
+            
           />
         </div>
         <div className="form-div">
@@ -58,7 +59,7 @@ export default function ({ type }) {
             value={formData.password}
             required
             type="password"
-            placeholder="Scrivi la tua password"
+            
           />
         </div>
         {type === "signup" && (
@@ -72,14 +73,14 @@ export default function ({ type }) {
             />
           </div>
         )}
-        <div>
-          <button disabled={loading}>{title}</button>
-          <Link to={"/"}><button>Back</button></Link>
+        <div className="signup-back-div">
+          <button className="signup-btn" disabled={loading}>{title}</button>
+          <Link to={"/"}><button className="back-btn">Back</button></Link>
         </div>
       </form>
       {loading && <div><img src="https://ieee-pdf-express.org/Content/images/loading.gif" alt="" /></div>}
-      {error && <div>{error}</div>}
-      {confirmPassError && <div>{confirmPassError}</div>}
+      {error && <div >{error}</div>}
+      {confirmPassError && <div className="error-dont-match">{confirmPassError}</div>}
     </div>
   );
 }

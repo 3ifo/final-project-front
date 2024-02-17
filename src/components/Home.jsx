@@ -1,5 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useUser } from "../context/userContext";
+import { MdOutlineCreate } from "react-icons/md";
+
+
+
+
+
 const Home = () => {
 
   const { user } = useUser();
@@ -11,12 +17,12 @@ const Home = () => {
       {!user && (
       <div className="div-btn-login-signup">
         <li>
-          <button>
+          <button className="login-signup-btn">
           <NavLink to="/signup">Sign Up</NavLink>
           </button>
         </li>
         
-        <button>
+        <button className="login-signup-btn">
         <li>
           <NavLink to="/login">Log In</NavLink>
         </li>
@@ -27,9 +33,19 @@ const Home = () => {
     )}
     
     </div>
-    <div className="home-container">
-    <h2>Benvenuto</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, est voluptate quaerat rem voluptatibus fuga id! Consequuntur fugit, odit nobis dolores vero nostrum. Eveniet consequuntur perspiciatis in placeat molestias aliquam! Quis voluptate laborum commodi quasi aperiam! Veritatis, pariatur, quisquam impedit commodi maxime totam dolor fuga non nisi odio quia quasi magni. Perspiciatis, consequatur laudantium, facilis accusantium quas corporis maxime laboriosam odio facere, deleniti aliquid! Dicta facilis dolorem provident impedit rem aut laborum a sint sit eveniet est molestias id odit voluptates cupiditate assumenda laudantium, doloribus error obcaecati quo nam. Sunt provident qui dicta debitis commodi est! Incidunt dolore non maiores harum omnis explicabo quas accusantium ad esse, ratione eveniet totam voluptas repellendus ipsum quisquam expedita culpa in fugit libero, numquam neque magni! Sunt fugiat culpa assumenda nisi in cupiditate facilis eaque, vero libero adipisci. Dolorum in, veniam mollitia distinctio ullam est repellendus autem aspernatur eum eaque adipisci, doloremque nostrum, vel ut! Modi, ipsa similique. Adipisci provident explicabo, architecto itaque ab voluptate perferendis voluptatem doloremque in quod cum eos eum quibusdam sint porro minus. Doloremque odio, suscipit provident ab fugiat accusantium, modi iure error voluptas porro nesciunt dolorem quaerat aut officia voluptatum nostrum temporibus corrupti cum minima accusamus eius omnis facere!</p>
+    <section className="hero-container">
+    <div className="hometext-container">
+    <h1 className="hero-h1">Welcome to FitZen.</h1>
+    <p>Create your custom gymcards <br /> See our professional training cards <br />Track your activities</p>
+    </div>
+    <div className="heroimg-container">
+      <img src="logo.png" alt="" />
+    </div>
+    </section>
+    
+    <div className="hero-btn">
+      <p>What are you waiting for ?</p>
+    <Link to={"/mygymcards"}><button>Start Create <MdOutlineCreate /></button></Link>
     </div>
     
     </>

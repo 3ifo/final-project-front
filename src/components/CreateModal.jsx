@@ -18,6 +18,7 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
             name: "",
             exercises: "",
             series: "",
+            type: "",
             duration: "",
             difficult:"",
             image: "",
@@ -33,6 +34,7 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
         name: "",
         exercises: "",
         series: "",
+        type: "",
         duration:"",
         image:"",
         notes:""
@@ -41,6 +43,7 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
     return (
         <>
         <dialog  id="create-modal-container">
+          <h3>Create your custom card</h3>
         <label>Name</label>
         <input 
         value={data.name}
@@ -69,6 +72,16 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
           series: e.target.value   
       }))}
         />
+        <label>Type of Training</label>
+      <select 
+       value={data.type}
+        onChange={(e) => setData((curr) => ({
+       ...curr,
+        type: e.target.value
+       }))}>
+      <option  value="aerobic">Aerobic</option>
+      <option  value="anaerobic">Anaerobic</option>
+      </select>
         <label>Duration</label>
         <input 
         value={data.duration}

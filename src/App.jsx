@@ -11,13 +11,14 @@ import { Navigate } from "react-router-dom";
 import User from "./components/User";
 import { useUser } from "./context/userContext";
 
+
 function App() {
   const { user } = useUser();
 
   return (
     <>
-    <div className="logo-div">Logo</div>
-      {user && <Navbar/> }   
+      <figure className="logo-div">  <img src="logo.png" alt="" /></figure>
+      {user && <Navbar/> }
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -29,11 +30,12 @@ function App() {
           element={!user ? <User type="login" /> : <Navigate to="/" />}
         />
         <Route path="/mygymcards" element={!user ? <User type="login" /> : <GymCards/>} />
-        <Route path="/mygymcards/:id" element={<GymCard/>}/>
-        <Route path="/gymcardspro" element={<GymCardsPro />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/contactus" element={<Contact />} />
+        <Route path="/mygymcards/:id" element={!user ? <User type="login" /> : <GymCard/>} />
+        <Route path="/gymcardspro" element={!user ? <User type="login" /> : <GymCardsPro/>} />
+        <Route path="/aboutus" element={!user ? <User type="login" /> : <AboutUs/>} />
+        <Route path="/contactus" element={!user ? <User type="login" /> : <Contact/>} />
       </Routes>
+      <footer>Ciao</footer>
     </>
   );
 }
