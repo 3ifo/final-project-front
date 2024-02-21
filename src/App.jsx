@@ -16,12 +16,13 @@ import NotFound from "./components/NotFound";
 
 
 
+
 function App() {
   const { user } = useUser();
 
   return (
     <>
-      <figure className="logo-div"> <Link to={"/"}> <img src="logo.png" alt="" /></Link></figure>
+      <figure className="logo-div"> <Link to={"/"}> <img src="/logo.png" alt="" /></Link></figure>
      {user && <Navbar/> } 
       <Routes>
         <Route path="/" element={<Home />} />
