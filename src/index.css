@@ -1022,7 +1022,7 @@ p.single-card-created {
   justify-content: center;
   position: relative;
   gap: 1rem;
-  background-image: url("protrainer.webp");
+  background-image: url("/public/protrainer.webp");
   background-size: cover;
 }
 
