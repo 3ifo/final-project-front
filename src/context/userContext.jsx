@@ -1,3 +1,4 @@
+
 import { createContext, useContext, useState } from "react";
 import axios from "../library/axiosConfig";
 const { VITE_API_URL } = import.meta.env;
@@ -6,7 +7,7 @@ import storage from "../hooks/storage";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = storage(null);
+  const [user, setUser] = storage('user', null); 
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -26,11 +27,9 @@ export const UserProvider = ({ children }) => {
 
     try {
       const body = { email, password };
-      const { data: user } = await axios.post(
-        `${VITE_API_URL}/authentication/signup`,
-        body
-      );
-      setUser(user);
+      const { data } = await axios.post(`${VITE_API_URL}/authentication/signup`, body);
+      localStorage.setItem('token', data.token); 
+      setUser(data.user); 
     } catch (error) {
       console.error(error);
       handleError(error);
@@ -41,17 +40,15 @@ export const UserProvider = ({ children }) => {
 
   const logIn = async (email, password) => {
     if (loading) return;
-
+  
     setError(null);
     setLoading(true);
-
+  
     try {
       const body = { email, password };
-      const { data: user } = await axios.post(
-        `${VITE_API_URL}/authentication/login`,
-        body
-      );
-      setUser(user);
+      const { data } = await axios.post(`${VITE_API_URL}/authentication/login`, body);
+      localStorage.setItem('token', data.token); 
+      setUser(data.user); 
     } catch (error) {
       console.error(error);
       handleError(error);
@@ -61,7 +58,8 @@ export const UserProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    setUser(null);
+    localStorage.removeItem('token');
+    setUser(null); 
   };
 
   const value = {

@@ -1,15 +1,19 @@
 import { useState } from "react"
 import axios from "../library/axiosConfig";
 const { VITE_API_URL } = import.meta.env;
-const {VITE_TOKEN}= import.meta.env;
+
+
 
 
 export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
+  //Prendo il token dal local storage
+  const getToken = () => localStorage.getItem('token');
 
     const createGymCards = (obj)=> {
+      const token = getToken()
         axios.post (`${VITE_API_URL}/trainingcards/mygymcards`, obj, {
           headers: {
-            authorization: `Bearer ${VITE_TOKEN}`
+            authorization: `Bearer ${token}`
           } 
         })
         
@@ -34,8 +38,9 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
         name: "",
         exercises: "",
         series: "",
-        type: "",
+        type: "bulk",
         duration:"",
+        difficult:"easy",
         image:"",
         notes:""
     })
@@ -44,9 +49,11 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
         <>
         <dialog  id="create-modal-container">
           <h3>Create your custom card</h3>
-        <label>Name</label>
+        <label>Name *</label>
         <input 
         value={data.name}
+        required
+        placeholder="Enter a minimum of 5 characters and a maxiumum of 15 characters"
         type="text" 
         onChange={(e) => setData((curr) => ({
           ...curr,
@@ -54,16 +61,22 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
       }))}
 
         />
-          <label>Exercises</label>
-        <input 
+        <label>Exercises*</label>
+        <textarea 
+        name=""
+        placeholder="Enter a minimum of 10 characters and a maximum of 200 characters"
+        id=""
+        required
+        cols="40" 
+        rows="5"
         value={data.exercises}
         type="text"
         onChange={(e) => setData((curr) => ({
           ...curr,
-          exercises: e.target.value   
+          exercises: e.target.value
       }))}
-        />
-           <label>Series</label>
+        ></textarea>
+           <label>Series *</label>
         <input 
         value={data.series}
         type="number"
@@ -72,19 +85,20 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
           series: e.target.value   
       }))}
         />
-        <label>Type of Training</label>
-      <select 
+        <label>Type of Training *</label>
+      <select
        value={data.type}
         onChange={(e) => setData((curr) => ({
        ...curr,
         type: e.target.value
        }))}>
-      <option  value="aerobic">Aerobic</option>
-      <option  value="anaerobic">Anaerobic</option>
+      <option  value="bulk">Bulk</option>
+      <option  value="cardio">Cardio</option>
       </select>
-        <label>Duration</label>
+        <label>Duration *</label>
         <input 
         value={data.duration}
+        required
         type="number"
         onChange={(e) => setData((curr) => ({
           ...curr,
@@ -98,13 +112,14 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
     ...curr,
     difficult: e.target.value
   }))}>
-  <option  value="easy">Easy</option>
-  <option  value="medium">Medium</option>
-  <option value="hard">Hard</option>
+  <option  value="easy">Easy </option>
+  <option  value="medium">Medium </option>
+  <option  value="hard">Hard</option>
 </select>
-        <label>IMG</label>
+        <label>IMG *</label>
         <input 
         value={data.image}
+        placeholder="Paste the link of the image you want to insert"
         type="text"
         onChange={(e) => setData((curr) => ({
           ...curr,
@@ -113,7 +128,8 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
         />
         <label>Notes</label>
         <textarea 
-        name="" 
+        name=""
+        placeholder="Enter a maximum of 150 characters"
         id="" 
         cols="40" 
         rows="5"
@@ -121,12 +137,13 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
         type="text"
         onChange={(e) => setData((curr) => ({
           ...curr,
+
           notes: e.target.value
       }))}
         ></textarea>
-    <div>
- <button onClick={()=> createGymCards(data)}>Create</button>
-      <button onClick={()=> setOpenModal(false)}>Cancel</button>
+    <div className="create-cancel-btn">
+ <button className="create-modal-btn" onClick={()=> createGymCards(data)}>Create</button>
+      <button className="cancel-modal-btn" onClick={()=> setOpenModal(false)}>Cancel</button>
      </div>
         </dialog>
         </>

@@ -1,6 +1,8 @@
 import { NavLink, Link } from "react-router-dom";
 import { useUser } from "../context/userContext";
 import { MdOutlineCreate } from "react-icons/md";
+import { VscDebugStart } from "react-icons/vsc";
+
 
 
 
@@ -13,6 +15,8 @@ const Home = () => {
 
   return (
     <>
+
+   
     <div className="logout-navbar">
       {!user && (
       <div className="div-btn-login-signup">
@@ -34,20 +38,24 @@ const Home = () => {
     
     </div>
     <section className="hero-container">
+    
     <div className="hometext-container">
-    <h1 className="hero-h1">Welcome to FitZen.</h1>
-    <p>Create your custom gymcards <br /> See our professional training cards <br />Track your activities</p>
+      
+    <h1 className="hero-h1">Welcome to FitMap.</h1>
+    <h5>The house of fitness, here you can:</h5>
+    <p> Create your custom gymcards <br /> Consult our professional training cards <br />Track your activities</p>
+    
     </div>
     <div className="heroimg-container">
-      <img src="logo.png" alt="" />
+      <img src="logo.png" alt="logo img" />
     </div>
     </section>
     
     <div className="hero-btn">
       <p>What are you waiting for ?</p>
-    <Link to={"/mygymcards"}><button>Start Create <MdOutlineCreate /></button></Link>
+    <Link to={"/mygymcards"}><button>START NOW<VscDebugStart /></button></Link>
+    <h6 id="new-features">*New beatiful features coming soon, stay tuned!</h6>
     </div>
-    
     </>
   );
 

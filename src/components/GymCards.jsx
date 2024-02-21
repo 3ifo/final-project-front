@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "../library/axiosConfig";
 const { VITE_API_URL } = import.meta.env;
-const {VITE_TOKEN}= import.meta.env;
 import { CreateModal } from "./CreateModal";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -10,20 +9,25 @@ import { Link } from "react-router-dom";
 const GymCards = () => {
   const [openModal,setOpenModal] = useState(false);
   const [editCard, setEditCard] = useState(null);
-  const [showEditForm, setShowEditForm] = useState(false);
   const [isSuccessMessageVisible, setIsSuccessMessageVisible] = useState(false);
   const [isCardDelete, setIsCardDelete] = useState(false)
   const [isConfirmModalVisible, setIsConfirmModalVisible] = useState(null);
   const [currentCardId, setCurrentCardId] = useState(null);
   const [cards, setCards] = useState([])
 
+  //Recupero il token dal local storage
+
+  const getToken = () => localStorage.getItem('token');
+
+
   const myCardsFetch = async () => {
     try {
+      const token = getToken()
       const response = await fetch(`${VITE_API_URL}/trainingcards/mygymcards`, {
         method: "GET", 
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${VITE_TOKEN}` 
+          "Authorization": `Bearer ${token}` 
         }
       });
       const result = await response.json();
@@ -43,16 +47,17 @@ const GymCards = () => {
     setTimeout(() => setIsSuccessMessageVisible(false), 3000);
     myCardsFetch(); 
 };
-//My delete functions
+//Le mie funzioni per il delete di una card
 const showDeleteConfirmModal = (cardId) => {
   setCurrentCardId(cardId);
   setIsConfirmModalVisible(cardId);
 };
 
 const handleDelete = () => {
+  const token = getToken()
   axios.delete(`${VITE_API_URL}/trainingcards/${currentCardId}`, {
     headers: {
-      Authorization: `Bearer ${VITE_TOKEN}`
+      Authorization: `Bearer ${token}`
     }
   }) 
     .then(() => {
@@ -71,42 +76,20 @@ const handleDelete = () => {
   return (
     <main>
         {(openModal || isConfirmModalVisible !== null) && <div className="backdrop show"></div>}
-      {isSuccessMessageVisible && <div className="success-message">Created successfully</div>}
-      <div>
-        <h2 className="your-gymcards">Your GymCards</h2>
+
+      <div className="your-gymcards-div">
+        <h2 className="your-gymcards"> <strong>Track</strong> your <strong>fitness</strong> activities</h2>
+        <p>Incorporating both cardiovascular (cardio) and weight training into your fitness routine is crucial for achieving a well-rounded and healthy lifestyle. Cardio exercises improve heart health, endurance, and aid in weight loss by burning calories. On the other hand, weight training is essential for building muscle strength, enhancing bone density, and boosting metabolism. Combining these two types of workouts ensures a balanced approach to fitness, promoting both heart health and muscular development, which can lead to improved overall physical performance and well-being.</p>
       </div>
       {openModal && <CreateModal openModal={openModal} onCardCreated={handleCardCreated} setOpenModal={setOpenModal} />}
-      {showEditForm && (
-  
-        <dialog className="edit-form">
-          <label>Name</label>
-          <input name="name" placeholder="Name" value={editCard.name} onChange={handleEditChange} />
-          <label>Exercises</label>
-          <input name="exercises" placeholder="Exercises" value={editCard.exercises} onChange={handleEditChange} />
-          <label htmlFor="">Series</label>
-          <input name="series" placeholder="Series" value={editCard.series} onChange={handleEditChange} />
-          <label>Duration</label>
-          <input name="duration" placeholder="Duration" value={editCard.duration} onChange={handleEditChange} />
-          <label>Difficult</label>
-          <input name="difficult" placeholder="Difficulty (easy, medium, hard)" value={editCard.difficult} onChange={handleEditChange} />
-          <label>IMG</label>
-          <input name="img" placeholder="Insert img link" value={editCard.image} onChange={handleEditChange} />
-          <label>Notes</label>
-          <input name="notes" placeholder="Notes" value={editCard.notes} onChange={handleEditChange} />
-          <div>
-          <button onClick={saveCardChanges}>Save Changes</button>
-          <button onClick={()=> setShowEditForm(false)}>Close</button>
-          </div>
-          
-        </dialog>
-      )}
+      
       
       <div className="card-container">
       
       {isCardDelete && <h4>Card deleted successfully</h4>}
         
         <div className="create">
-        <h3>Create your card!</h3>
+        <h3>Create your <strong id="card-create-strong">card!</strong> </h3>
         <span id="create-card-btn" onClick={() => setOpenModal(true)}><IoAddCircleOutline /></span>
         
 
@@ -118,10 +101,8 @@ const handleDelete = () => {
             <img src={card.image} alt="" />
             </div>
             <p className="duration">{card.duration}m</p> <hr />
-            {/* <p>Series: {card.series}</p> */}
             <p className="type">{card.type}</p> <hr />
             <p className="difficult">{card.difficult}</p>
-            {/* <p>{card.created}</p> */}
             <div className="details-delete-btn">
             <Link to={`/mygymcards/${card._id}`}> <button className="details-btn">Details</button></Link>
             <button className="delete-btn" onClick={() => showDeleteConfirmModal(card._id)}>Delete</button>
@@ -130,8 +111,8 @@ const handleDelete = () => {
         <div className="delete-confirm-modal show">
           <p>Are you sure you want to delete this card? </p>
           <div>
-          <button onClick={handleDelete}>Confirm</button>
-          <button onClick={() => setIsConfirmModalVisible(null)}>Back</button>
+          <button className="confirm-delete" onClick={handleDelete}>Confirm</button>
+          <button className="no-confirm-delete" onClick={() => setIsConfirmModalVisible(null)}>Back</button>
           </div>
           
         </div>

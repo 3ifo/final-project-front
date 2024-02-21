@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// Preparazione del local storage, come visto a lezione ho preso spunto dal progetto del mio professore.
+
 export default function (key, defaultValue) {
   const oldValue = localStorage.getItem(key);
 

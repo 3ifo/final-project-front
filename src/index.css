@@ -17,28 +17,73 @@
 }
 
 body {
-  background-color: rgb(6, 2, 26);
+  background-color: rgb(6, 2, 35);
   height: 100vh;
-  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  
+}
+
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4a88fa;
+  border-radius: 21px;
 }
 
 main {
   margin-left: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 
 img {
   max-width: 100%;
 }
-footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
+
 
 p {
   color: #efefef;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about-us h1 {
+  font-size: 4.5rem;
+  color: #4A88FA;
+}
+
+#fitzen-strong {
+  font-size: 1.2rem;
+  font-weight: 300;
+  
+}
+
+.about-us p {
+  width: 50%;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+#new-features {
+  color: white;
+  font-size: 1rem;
+  padding-top: .5rem;
+  font-weight: 300;
+  font-style: italic;
 }
 
 /* User CSS */
@@ -58,12 +103,26 @@ p {
   align-items: center;
   gap: 1.5rem;
   border: 1px solid black;
-  background-color: #70b3ff;
+  background-color: #4a88fa;
   padding: 2rem;
+  border: .5px solid white;
   width: 350px;
   height: 400px;
   border-radius: 6px;
+  position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0px 10px cornflowerblue;
+  filter: drop-shadow(4px 4px 10px cornflowerblue);
+  
+}
+
+#div-loading {
+  padding-top: 1.8rem;
+  width: 60px;
+}
+
+#loading {
+  width: 100%;
+  
 }
 
 .user-form-container form input {
@@ -72,20 +131,21 @@ p {
   height: 30px;
   border: none;
   padding: .5rem;
-  border-radius: 81px;
+  border-radius: 61px;
   background-color: #efefef;
-  transition: .2s ease-in;
-
+  transition: .3s ease-out;
 }
 
 .user-form-container form input:focus {
   transform: scaleY(1.1);
   background-color: rgba(245, 245, 245, 0.250);
+  border-radius: 6px;
 }
 
 .error-dont-match {
   color: #efefef;
   font-size: 1.2rem;
+  padding-top: .7rem;
 }
 
 .user-form-container form h1 {
@@ -106,7 +166,7 @@ p {
 }
 
 .login-signup-btn {
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1.4rem;
   border-radius: 31px;
   outline: none;
   border: none;
@@ -114,6 +174,11 @@ p {
   font-weight: 700;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 10px rgba(233, 218, 218, 0.938);
   cursor: pointer;
+  transition: all .2s ease-out;
+}
+
+.login-signup-btn:hover {
+  border-radius: 6px;
 }
 
 .login-signup-btn a {
@@ -131,10 +196,12 @@ p {
   border-radius: 81px;
   border: none;
   font-weight: 600;
-  background-color: #00032b;
+  background-color: #010214;
   color: #efefef;
   cursor: pointer;
+  transition: all .1s ease-out;
 }
+
 .back-btn {
   padding: 0.55rem 1.5rem;
   border-radius: 81px;
@@ -149,18 +216,18 @@ nav {
   position: fixed;
   left: 0;
   right: 0;
-  height: 550px;
-  margin-top: 5rem;
+  height: 500px;
+  margin-top: 6rem;
   background-color: rgb(74, 136, 250);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   z-index: 2000;
   transition: .2s ease-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0px 10px cornflowerblue;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0px 15px cornflowerblue;
+
 
 }
 
@@ -170,6 +237,7 @@ nav:hover {
   border-top-right-radius: 26px;
   border-bottom-right-radius: 26px;
   box-shadow: unset;
+
 }
 
 nav ul {
@@ -181,20 +249,19 @@ nav ul {
 }
 
 .navbar-icons {
-  color: #efefef;
+  color: white;
   font-size: 3.5rem;
-  transition: .2s ease-in;
+  transition: .1s ease-in;
 }
 
 .navbar-icons:hover {
-  color: #00032b;
-  
+  filter: drop-shadow(0px 0px 5px white);
 }
 .div-btn-login-signup {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
 .logout-div {
@@ -213,7 +280,13 @@ nav ul {
   color: white;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 20px rgba(220, 15, 15, 0.938);
+  filter: drop-shadow(0px 0px  15px red);
+  transition: all .15s ease-out;
+}
+
+.logout-div button:hover {
+  background-color: rgb(222, 24, 10);
+  filter: unset;
 }
 
 .logout-navbar {
@@ -228,6 +301,7 @@ nav ul {
   margin-top: 1rem;
 }
 
+
 /* Home */
 
 
@@ -236,21 +310,33 @@ nav ul {
   justify-content: center;
   align-items: center;
   margin-top: -2rem;
+  padding-left: 4rem;
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: hero 2s ease-out 1 forwards;
 }
+
+@keyframes hero {
+  100% {
+    opacity: 1;
+    transform: unset;
+    
+
+  }
+}
+
 .hometext-container {
   padding: 0 1rem;
   margin-left: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
-  
 }
 
 .heroimg-container {
   display: flex;
   justify-content: center;
-  margin-left: -3rem;
+  margin-left: -5rem;
 }
 
 .hero-h1 {
@@ -268,41 +354,78 @@ nav ul {
   margin-top: -6rem;
   flex-direction: column;
   gap: 1rem;
+  transform: translateY(85%);
+  opacity: 0;
+  animation: hero-btn 2s  ease-out 1s 1 forwards;
+}
+
+@keyframes hero-btn  {
+  100% {
+    transform: unset;
+    opacity: 1;
+    
+}
+}
+
+em {
+  color: #4A88FA;
+  font-style: normal;
 }
 
 .hero-btn button {
-  padding: 1rem 3rem;
+  padding: 1rem 1.5rem;
   background-color: rgb(74, 136, 250);
   color: white;
-  font-weight: 900;
-  font-size: 1.5rem;
-  border-radius: 61px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0px 0px 13px cornflowerblue;
   display: flex;
   align-items: center;
-  gap: .3rem;
   justify-content: center;
+  transition: all .15s ease-out;
+}
+
+.hero-btn button:hover {
+  filter: drop-shadow(0px 0px 15px rgb(89, 143, 243) );
+  
+
 }
 
 .hero-btn p {
   font-size: 1.6rem;
   font-weight: 600;
+  
 }
 
 .heroimg-container img {
   width: 650px;
   border-radius: 6px;
   transition: .4s ease-in;
+  filter: drop-shadow(4px 4px 10px rgb(74, 136, 250));
+  animation: pesovolante .3s ease-in 20 backwards;
+  
+  
   
 }
 
-.heroimg-container img:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0px 0px 23px cornflowerblue;
-  border-radius: 50%;
-  padding: 1rem;
-}
+ @keyframes pesovolante {
+  0% { 
+    transform: translateX(-1%);
+    
+    
+  }
+  50% {
+    transform: translateY(1%);
+    filter: drop-shadow(4px 4px 40px rgb(4, 59, 160));
+    
+  }
+  100% {
+    transform: translateX(-1%);
+  }
+} 
+
 
 h1 {
   text-align: center;
@@ -336,7 +459,37 @@ h3 {
   cursor: pointer;
 }
 
+h5 {
+  color: white;
+  font-size: 1.8rem;
+  color: aqua;
+}
+
 /* MyGymCards */
+
+.your-gymcards-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 7rem;
+  padding: 0 2rem;
+  gap: 0.5rem;
+}
+.your-gymcards {
+  font-size: 4.5rem;
+  color: #efefef;
+  text-align: left;
+}
+
+strong {
+  font-size: 4.5rem;
+  color: #4A88FA;
+}
+
+.your-gymcards-div p {
+  font-size: 1.2rem;
+  font-weight: 200;
+}
 
 .card-container {
   display: flex;
@@ -352,21 +505,36 @@ h3 {
   padding: 1.5rem 1rem;
   border-radius: 10px;
   position: relative;
-  background-color:  #083569;
+  background-color: rgba(0, 0, 0, 0.619);
+  background-image: url("https://cdn1.iconfinder.com/data/icons/sport-avatar-6/64/29-avatar-fitness-weightlifter-weightlifting-gymnast-sports-gym-512.png");
+  background-size: cover;
+  background-position: 60px;
+  background-blend-mode: darken;
   height: 400px;
   width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   gap: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 8px rgba(252, 253, 254, 0.938);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 4px rgba(252, 253, 254, 0.938);
+  transition: .7s ease-out;
 }
 
+.card:hover {
+  background-color: #4a88fa;
+  background-blend-mode: darken;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 16px rgba(252, 253, 254, 0.938);
+  background-position: -20px;
+}
+.card:hover .details-btn {
+  background-color: #00032b;
+}
 .details-btn {
   background-color: cornflowerblue;
   color: #efefef;
   font-weight: 700;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 4px rgba(252, 253, 254, 0.938);
+  transition: .7s ease-in;
 }
 
 .delete-btn {
@@ -376,14 +544,9 @@ h3 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 10px red;
 }
 
-.your-gymcards {
-  font-size: 4.5rem;
-  color: #efefef;
-}
 
 .card p {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 #create-card-btn {
@@ -392,6 +555,11 @@ h3 {
   align-items: center;
   font-size: 5rem;
   cursor: pointer;
+  color: lightgray;
+}
+
+#create-card-btn:hover {
+  color: #4A88FA;
 }
 
 .card-name-image {
@@ -403,7 +571,7 @@ h3 {
 }
 
 .create {
-  background-color: lightgrey;
+  background-color: rgba(131, 168, 237, 0.065);
   padding: 1.5rem 1rem;
   border-top-right-radius: 61px;
   position: relative;
@@ -414,13 +582,35 @@ h3 {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 8px rgba(252, 253, 254, 0.938);
+}
+
+#card-create-strong {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.create:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0px 24px rgba(252, 253, 254, 0.938);
+  background-color: rgba(131, 168, 237, 0.034);
+}
+
+.create h3 {
+  color: lightgray;
+}
+
+hr {
+  background-color: aquamarine;
+  border-radius: 30px;
+  height: 3px;
 }
 
 .card-name-image img {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border: 1.5px solid aqua;
+  border: 1.5px solid cornflowerblue;
 }
 
 h4 {
@@ -446,16 +636,32 @@ h4 {
 p.duration {
   font-size: 2rem;
   text-align: center;
+  color: gold;
+  font-weight: 900;
 }
 
 p.type {
   font-size: 2rem;
   text-align: center;
+  text-transform: capitalize;
 }
 
 p.difficult {
   font-size: 2rem;
   text-align: center;
+  text-transform: capitalize;
+}
+
+.confirm-delete {
+  background-color: red;
+  color: white;
+  font-weight: 500;
+}
+
+.no-confirm-delete {
+  background-color: black;
+  color: white;
+  font-weight: 500;
 }
 
 /* Single Gymcard */
@@ -469,6 +675,8 @@ p.difficult {
   
 } 
 
+
+
 .big-card-container .edit-btn{
   padding: 0.85rem 2rem;
   margin-top: 1.5rem;
@@ -479,28 +687,125 @@ p.difficult {
   color: #efefef;
   font-weight: 900;
   cursor: pointer;
+  filter: drop-shadow(0px 0px 10px #4A88FA );
+  transition: all .1s ease-in-out;
+}
+
+.big-card-container .edit-btn:hover {
+  border-radius: 6px;
 }
 
 .big-card-container img {
-  width: 400px;
-  object-fit: contain;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 21px;
+  border: 1px solid lightskyblue;
 }
 
 .single-card {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  align-items: center;
   border: 1px solid;
-  padding: 2.5rem 1.5rem;
+  padding: 2.5rem 1.75rem;
   gap: 2rem;
-  border: 5px solid cornflowerblue;
+  border: 3.5px solid cornflowerblue;
+  border-radius: 21px;
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/218fc872735831.5bf1e45999c40.gif");
+  background-size: cover;
+  filter: drop-shadow(4px 4px 12px rgb(74, 136, 250));
+  min-width: 1000px;
+  position: relative;
+  transition: all .75s ease-out;
+  
+}
+
+.single-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right top, #051937e6, #052c60e9, #04438cdf, #065abae2, #1270ebdd);
+  border-radius: 21px;
+  z-index: -3;
+}
+
+.single-card:hover{
+  background-position: 225px;
+  
+}
+
+.single-card p {
+  font-size: 1.4rem;
+  font-weight: 200;
+  word-wrap: break-word;
+}
+
+#single-card-exercises {
+  font-size: 1.2rem;
 }
 
 .single-card-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 1rem;
+  padding-bottom: 3rem;
+  max-width: 500px;
 }
+
+p.single-card-created {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+
+.single-card-name {
+  color: cornflowerblue;
+  font-size: 2.5rem;
+  text-align: left;
+  gap: .3rem;
+}
+
+
+
+
+.single-card-duration {
+  font-size: 1.5rem;
+  
+}
+
+.single-card-difficult {
+  text-transform: capitalize;
+}
+.single-card-type {
+  text-transform: capitalize;
+}
+.container-max-width {
+  max-width: 400px;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#strong-exercises {
+  color: burlywood;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.single-gymcard-strong {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: aqua;
+}
+
 
 
 /* Create Modal css */
@@ -512,13 +817,85 @@ p.difficult {
   gap: 0.3rem;
   padding: 0.5rem 1.5rem;
   width: 600px;
-  height: 550px;
+  height: 600px;
   border-radius: 10px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-40%, -50%);
   z-index: 1200;
+  background-color: #4A88FA;
+}
+
+
+#create-modal-container h3 {
+  font-size: 1.5rem;
+}
+
+#create-modal-container input {
+  height: 25px;
+  background-color: rgba(211, 211, 211, 0.303);
+  outline: none;
+  border: none;
+  font-weight: 400;
+  padding: 0.15rem 0.3rem;
+}
+
+#create-modal-container input::placeholder {
+  color: lightgray;
+}
+
+
+#create-modal-container label {
+  font-weight: 600;
+  color: lightgray;
+  
+}
+
+#create-modal-container textarea {
+  background-color: rgba(211, 211, 211, 0.303);
+  outline: none;
+  border: none;
+  font-weight: 400;
+  padding: 0.15rem 0.3rem;
+  
+}
+
+#create-modal-container textarea::placeholder {
+  color: lightgray;
+}
+
+#create-modal-container select {
+  height: 25px;
+  outline: none;
+  background-color: rgba(211, 211, 211, 0.303);
+  padding: 0.15rem 0.30rem;
+}
+
+.create-cancel-btn {
+  display: flex;
+  gap: .5rem;
+  padding-top: .5rem;
+}
+
+.create-modal-btn {
+  padding: 0.65rem 1.3rem;
+  border-radius: 61px;
+  border: none;
+  background-color: #00032b;
+  color: lightgray;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancel-modal-btn {
+  padding: 0.65rem 1.3rem;
+  border-radius: 61px;
+  border: none;
+  background-color: red;
+  color: lightgray;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .btn-open-modal {
@@ -551,8 +928,27 @@ p.difficult {
   border-radius: 10px;
   width: 550px;
   height: 600px;
+  background-color: #4A88FA;
  
 } 
+
+.edit-form label {
+  color: white;
+  font-weight: 600;
+}
+
+.edit-form input {
+  height: 25px;
+  background-color: rgba(211, 211, 211, 0.303);
+  outline: none;
+  border: none;
+  padding: 0.15rem 0.3rem;
+}
+
+.edit-form textarea {
+  outline: none;
+  background-color: rgba(211, 211, 211, 0.303);
+}
 
 .delete-confirm-modal {
   position: absolute;
@@ -569,10 +965,26 @@ p.difficult {
   align-items: center;
   flex-direction: column;
   z-index: 1110;
-  background-color: #083569;
+  background-color: #4A88FA;
+  border-radius: 6px;
   color: white;
   text-align: center;
   padding: 0 0.3rem;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+
+.delete-confirm-modal.show div {
+  display: flex;
+  gap: .3rem;
+}
+
+.delete-confirm-modal.show button {
+  padding: 0.5rem 1rem;
+  border-radius: 61px;
+  border: none;
+  cursor: pointer;
 }
 
 .backdrop {
@@ -590,7 +1002,120 @@ p.difficult {
   display: block;
 }
 
+/* Pro CARDS */
 
+.procard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding-top: 2rem;
+}
+
+.pro-card {
+  width: 400px;
+  height: 580px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 1rem;
+  background-image: url("protrainer.webp");
+  background-size: cover;
+}
+
+.pro-card-overlay{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  z-index: -2;
+  background-color: rgba(0, 0, 0, 0.481);
+}
+
+.pro-card-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.752);
+}
+
+
+.pro-1 {
+  filter: drop-shadow(0px 0px 15px green);
+  border: 1.5px solid rgb(8, 174, 8);
+}
+
+.pro-2 {
+  filter: drop-shadow(0px 0px 15px darkorange);
+  border: 1.5px solid darkorange;
+}
+
+.pro-3 {
+  filter: drop-shadow(0px 0px 15px red);
+  border: 1.5px solid red;
+}
+
+.personal-trainer {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid lightcyan;
+}
+
+.pro-card h3 {
+  color: lightcyan;
+}
+
+.pro-card p {
+  text-align: center;
+}
+
+.pro-card-img-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  display: none;
+}
+
+.pro-card-type {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+p.pro-card-notes {
+  font-weight: 500;
+}
+
+.pro-card-h1 {
+  font-size: 3rem;
+}
+
+#pro-card-h1-strong {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+#pro-card-difficult-easy {
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgb(11, 209, 11);
+}
+
+#pro-card-difficult-medium {
+  font-size: 2rem;
+  font-weight: 900;
+  color: darkorange;
+}
+
+#pro-card-difficult-hard {
+  font-size: 2rem;
+  font-weight: 900;
+  color: red;
+}
 
 
 
@@ -601,16 +1126,245 @@ p.difficult {
 
 /* Media queries */ 
 
-@media screen and (max-width: 500px) {
+/* Laptop media queries */
+
+@media screen and (max-width: 1660px) {
+  
+  nav{
+    height: 450px;
+    margin-top: 1.8rem;
+    width: 90px;
+  }
+  nav:hover {
+    width: 100px;
+  }
+  .pro-card-h1 {
+    font-size: 2.2rem;
+    margin-top: -2rem;
+  }
+  .pro-card {
+    width: 350px;
+  height: 480px;
+  gap: .5rem;
+  }
+
+  main {
+    margin-left: 3rem;
+    margin-top: -2rem;
+  }
+
+  .procard-container {
+    padding-left: 2rem;
+    padding-right:2rem ;
+    padding-top: 1rem;
+  }
+  p.duration {
+    font-size: 1.8rem;
+  }
+  .pro-card-type {
+    font-size: 1.8rem;
+  }
+  #pro-card-h1-strong {
+    font-size: 2.2rem;
+    font-weight: 800;
+  }
+  .pro-card-overlay {
+    background-color: rgba(0, 0, 0, 0.750);
+  }
+  .pro-card-overlay:hover {
+    background-color: #00032be2;
+  }
+  .personal-trainer {
+    width: 70px;
+    height: 70px;
+  }
+  .logout-div {
+    padding: 0.25rem 1rem;
+  }
+  .logout-navbar {
+    padding: 0.15rem 0.75rem;
+  }
+  .about-us {
+    margin-top: -2rem;
+    text-align: center;
+  }
+  .logo-div {
+    padding: 0.25rem 1rem;
+  }
+  .logo-div img {
+    width: 90px;
+  }
+  .single-gymcard-strong {
+    font-size: 1.4rem;
+  }
+  .hero-h1 {
+    font-size: 4.5rem;
+  }
+  .hero-container {
+    gap: 2rem;
+    margin-top: -3rem;
+  }
+  .hero-container img {
+    width: 500px;
+  }
+  .hero-btn button {
+    padding: 1rem 2rem;
+  }
+  .hero-container p {
+    font-size: 2rem;
+  }
+  .user-form-container{
+    top: 50px;
+  }
+  .your-gymcards-div {
+    margin-left: 5.5rem;
+  }
+  .your-gymcards-div p {
+    padding-right: 3.5rem;
+    font-size: 1.1rem;
+  }
+  .your-gymcards {
+    font-size: 4rem;
+    font-weight: 800;
+  }
+  .your-gymcards strong {
+    font-size: 4rem;
+    font-weight: 800;
+  }
+  .card-container {
+    margin-right: 2.2rem ;
+  }
+  .big-card-container {
+    margin-top: -0.5rem;
+  }
+  .big-card-container img {
+    width: 300px;
+    height: 300px;
+  }
+  .container-max-width {
+    max-width: 350px;
+  }
+  .single-card {
+    min-width: 880px;
+    min-height: 460px;
+    padding: 1rem 1rem;
+    gap: 1rem;
+  }
+  #your-card-h1 {
+    display: none;
+  }
+  .hero-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -6rem;
+    flex-direction: column;
+    gap: 1rem;
+    transform: translateY(50%);
+    opacity: 0;
+    animation: hero-btn 2s  ease-out 1s 1 forwards;
+  }
+  
+  @keyframes hero-btn {
+    100% {
+      transform: unset;
+      opacity: 1;
+  }
+  }
+}
+
+
+/* Ipad && Tablet Media Queries */
+
+@media screen and (max-width: 1024px){
+  nav {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    width: 100%;
+    height: 100px;
+    border-radius: unset;
+  }
+  nav:hover {
+    width: unset;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    box-shadow: unset;
+  
+  }
+  nav ul {
+    flex-direction: row;
+  }
+  .hero-container {
+  flex-direction: column;
+  padding-left: unset;
+  margin-top: 3rem;
+  gap: 1rem;
+  }
+  .hero-h1 {
+    font-size : 4rem;
+  }
+  .hometext-container {
+    margin-left: 2rem;
+  }
+  .hero-btn {
+    padding-top: 5rem;
+  }
+  .heroimg-container {
+    margin-left : unset
+  }
+  .heroimg-container img {
+    width: 400px;
+  }
+  main {
+  padding-bottom: 6rem;
+  padding-top: 3rem
+  }
+  .your-gymcards-div {
+    margin-left: 2rem
+  }
+  #create-modal-container {
+    left: 45%
+  }
+  .big-card-container {
+    padding-top: 4rem
+  }
+  .edit-form {
+    top:45%
+  }
+  .procard-container {
+  flex-direction: column;
+  padding-bottom: 8rem;
+  }
+  .pro-card-h1 {
+    padding-top: 5rem
+  }
+  .about-us {
+    padding: 0.3rem 1rem;
+  }
+  .about-us p {
+    width: unset;
+  }
+  .single-card {
+    min-width: 280px;
+  }
+}
+
+
+
+/* Mobile Media Queries */ 
+
+@media screen and (max-width: 680px) {
   nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
-    height: 65px;
-    align-items: center;
+    height: 60px;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
     margin: 0;
     padding: 0;
@@ -625,10 +1379,194 @@ p.difficult {
     padding: 0.5rem 1.2rem;
     gap: 1.5rem;
   }
-  #usageHidden {
-    display: none;
+  nav:hover {
+    width: unset;
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
   }
   .navbar-icons {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
+
+  }
+  .heroimg-container {
+    margin-left: unset;
+    margin-top: -2rem;
+  }
+
+  .heroimg-container img {
+    width: 200px;
+    display: none;
+  }
+
+  .hero-container {
+    padding-left: 0rem;
+    margin-top: 1rem;
+    flex-direction: column;
+    padding-top: 4.5rem;
+  }
+  .hometext-container {
+    margin-left: unset;
+    gap: .5rem;
+    
+  }
+  .hero-container h5 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  .hometext-container p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  .hero-h1 {
+    font-size: 2.5rem;
+    text-align: unset;
+    filter: unset;
+    text-align: center;
+  }
+  .hero-btn {
+    padding-top: 8rem;
+    
+  }
+  .hero-btn button {
+    padding: 1.2rem 1.5rem;
+    font-size: 1rem;
+    filter: drop-shadow(0px 0px 12px #4A88FA);
+    
+  }
+.hero-btn p {
+  font-size: 1rem;
+  font-weight: 500;
+  display: none;
+}
+
+  .logout-div {
+    padding-right: .7rem;
+  }
+  .logo-div {
+    padding-left: .7rem;
+    
+  }
+  main {
+    margin-left: unset;
+    padding-bottom: 4rem;
+    
+  }
+  .big-card-container {
+    padding-top: 2rem;
+  }
+  .your-gymcards-div {
+    margin-left: unset;
+    padding-top: 2rem;
+  }
+  .your-gymcards-div p {
+    padding-right: unset;
+  }
+  .your-gymcards {
+    font-size: 3.5rem;
+  }
+  .your-gymcards strong {
+    font-size: 3.5rem;
+  }
+  #create-modal-container {
+    width: 350px;
+    height: auto;
+    left: 40%;
+    margin: .3rem;
+  }
+  .single-card {
+    flex-direction: column;
+    min-width:auto ;
+    padding-bottom: 2rem;
+    gap: .7rem;
+    max-width: 398px;
+    background-position: center;
+  }
+  
+
+  .single-card img {
+    display: none;
+  }
+  .single-card-text {
+    padding-bottom: 1rem;
+    max-width: 300px;
+    
+  }
+  .single-card p {
+    word-wrap: break-word;
+    max-width: 300px;
+  }
+  .edit-btn-div {
+    padding-bottom: 6rem;
+  }
+  .single-card-name {
+    font-size: 2rem;
+  }
+
+  #strong-exercises {
+    font-size: 1.5rem;
+  }
+  .edit-form {
+    width: 350px;
+  }
+  .procard-container {
+    flex-direction: column;
+    padding-bottom: 7rem;
+  }
+  .pro-card {
+    width: 350px;
+    height: 560px;
+    background-image: url("protrainer.webp");
+    background-size: cover;
+    
+  }
+  .pro-card-overlay:hover {
+    background-color: rgba(0,0,0,0.481) ;
+  }
+  .pro-card-h1 {
+    font-size: 1.8rem;
+    padding-top: 1.5rem;
+    margin-top: unset;
+  }
+  #pro-card-h1-strong {
+    font-size: 1.8rem;
+  }
+  .about-us {
+    padding-bottom: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 3rem;
+  }
+  .about-us h1 {
+    font-size: 3rem;
+  }
+  #fitzen-strong{
+    font-size: 1rem;
+  }
+  .about-us p {
+    width: unset;
+    font-size: 1rem;
+    letter-spacing: unset;
+    text-align: center;
+  }
+  .logo-div img {
+    width: 80px;
+    
+  }
+  .logout-navbar {
+    padding: 0.5rem 0.75rem;
+  }
+  .card-container {
+    margin-right: unset;
+  }
+  input {
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+  textarea {
+    font-size: 1rem;
+    padding: 0.3rem;
   }
 }
+
+

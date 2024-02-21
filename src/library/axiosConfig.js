@@ -1,4 +1,4 @@
-// axios config for credentials
+// Configurazione di axios, preso spunto dal progetto del mio professore.
 
 import axios from "axios";
 

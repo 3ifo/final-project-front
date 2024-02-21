@@ -78,8 +78,8 @@ export default function ({ type }) {
           <Link to={"/"}><button className="back-btn">Back</button></Link>
         </div>
       </form>
-      {loading && <div><img src="https://ieee-pdf-express.org/Content/images/loading.gif" alt="" /></div>}
-      {error && <div >{error}</div>}
+      {loading && <div id="div-loading"><img id="loading" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/09b24e31234507.564a1d23c07b4.gif" alt="" /></div>}
+      {error && <div className="error-dont-match">{error}</div>}
       {confirmPassError && <div className="error-dont-match">{confirmPassError}</div>}
     </div>
   );

@@ -1,6 +1,6 @@
 
 import Navbar from "./components/Navbar";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import GymCards from "./components/GymCards";
 import GymCardsPro from "./components/GymCardsPro";
@@ -10,6 +10,10 @@ import Contact from "./components/Contact";
 import { Navigate } from "react-router-dom";
 import User from "./components/User";
 import { useUser } from "./context/userContext";
+import NotFound from "./components/NotFound";
+
+
+
 
 
 function App() {
@@ -17,8 +21,8 @@ function App() {
 
   return (
     <>
-      <figure className="logo-div">  <img src="logo.png" alt="" /></figure>
-      {user && <Navbar/> }
+      <figure className="logo-div"> <Link to={"/"}> <img src="logo.png" alt="" /></Link></figure>
+     {user && <Navbar/> } 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -33,9 +37,9 @@ function App() {
         <Route path="/mygymcards/:id" element={!user ? <User type="login" /> : <GymCard/>} />
         <Route path="/gymcardspro" element={!user ? <User type="login" /> : <GymCardsPro/>} />
         <Route path="/aboutus" element={!user ? <User type="login" /> : <AboutUs/>} />
-        <Route path="/contactus" element={!user ? <User type="login" /> : <Contact/>} />
+        <Route path="/contactus" element={!user ? <User type="login" /> :<Contact/>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
-      <footer>Ciao</footer>
     </>
   );
 }

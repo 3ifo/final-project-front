@@ -27,29 +27,28 @@ const Navbar = () => {
         {user && (
           <>
             <li>
-              <NavLink to="/"><span className="navbar-icons"><FaHome /></span></NavLink>
+              <NavLink to="/"><span title="Home" className="navbar-icons"><FaHome /></span></NavLink>
             </li>
 
             <li>
-              <NavLink to="mygymcards"> <span className="navbar-icons"><IoFitness /></span></NavLink>
+              <NavLink to="mygymcards"> <span title="My gym cards" className="navbar-icons"><IoFitness /></span></NavLink>
             </li>
 
             <li>
-              <NavLink to="gymcardspro"><span className="navbar-icons"><GiHealthPotion /></span></NavLink>
+              <NavLink to="gymcardspro"><span title="Recommended gym cards" className="navbar-icons"><GiHealthPotion /></span></NavLink>
             </li>
 
             <li>
-              <NavLink to="aboutus"><span className="navbar-icons"><RiInformationFill /></span></NavLink>
+              <NavLink to="aboutus"><span title="About us" className="navbar-icons"><RiInformationFill /></span></NavLink>
             </li>
 
             <li>
-              <NavLink to="contactus"><span className="navbar-icons"><BiSolidContact /></span></NavLink>
+              <NavLink to="contactus"><span title="Contact us" className="navbar-icons"><BiSolidContact /></span></NavLink>
             </li>
 
           </>
         )}
       </ul>
-      <span id="usageHidden" className="navbar-icons"><LiaQuestionSolid /></span>
     </nav>
     <div className="logout-div">
               <button onClick={()=> {
