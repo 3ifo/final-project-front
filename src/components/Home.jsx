@@ -44,7 +44,6 @@ const Home = () => {
     <h1 className="hero-h1">Welcome to FitMap.</h1>
     <h5>The house of fitness, here you can:</h5>
     <p> Create your custom gymcards <br /> Consult our professional training cards <br />Track your activities</p>
-    
     </div>
     <div className="heroimg-container">
       <img src="/logo.png" alt="logo img" />

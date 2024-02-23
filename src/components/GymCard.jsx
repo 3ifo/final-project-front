@@ -87,15 +87,19 @@ const GymCard = () => {
             <p className='single-card-type'><strong className='single-gymcard-strong'>Type: </strong>{card.type}</p>
             <p className='single-card-difficult'><strong className='single-gymcard-strong'>Difficult: </strong>{card.difficult}</p>
             <p className='single-card-notes'><strong className='single-gymcard-strong'>Notes:</strong> {card.notes}</p>
-            <p className='single-card-created'>{dayjs(card.created).format('YYYY-MM-DD')}</p> 
+            <p className='single-card-created'>Training date: {dayjs(card.created).format('YYYY-MM-DD')}</p>
+            
+          <button className='edit-btn' onClick={() => setShowEditForm(true)}>Edit your card</button>
+          
           </div>
           </div>
           
-          <div className='edit-btn-div'>
+          {/* <div className='edit-btn-div'>
           <button className='edit-btn' onClick={() => setShowEditForm(true)}>Edit your card</button>
-          </div>
+          </div> */}
           
           {showEditForm && (
+            
             <dialog className="edit-form">
             <label>Name</label>
           <input name="name" placeholder="Name" value={editCard.name} onChange={handleEditChange} />

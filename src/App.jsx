@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <figure className="logo-div"> <Link to={"/"}> <img src="/logo.png" alt="" /></Link></figure>
+      <figure className="logo-div"> <Link to={"/"}> <img src="/logo.png" alt="" /></Link>{user && <p className="benvenuto">Welcome back! <br />{user && user.email}</p>}</figure>
      {user && <Navbar/> } 
       <Routes>
         <Route path="/" element={<Home />} />

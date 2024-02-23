@@ -58,7 +58,18 @@ p {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  animation: about 1s ease-in-out 1 forwards;
+  transform: translateX(-100%);
+  opacity: 0;
 }
+
+@keyframes about {
+  100% {
+    opacity: 1;
+    transform: unset;
+  }
+}
+
 
 .about-us h1 {
   font-size: 4.5rem;
@@ -115,6 +126,20 @@ p {
   
 }
 
+.no-account {
+  padding-top: .5rem;
+  
+  color: white;
+}
+.no-account * {
+  color: white;
+  text-decoration: underline;
+}
+
+.user-form-container form h6 {
+  text-align: center;
+}
+
 #div-loading {
   padding-top: 1.8rem;
   width: 60px;
@@ -144,8 +169,9 @@ p {
 
 .error-dont-match {
   color: #efefef;
-  font-size: 1.2rem;
-  padding-top: .7rem;
+  font-size: 1rem;
+  padding-top: 1rem;
+  font-weight: 300;
 }
 
 .user-form-container form h1 {
@@ -159,6 +185,7 @@ p {
   flex-direction: column;
   gap: 0.5rem;
 }
+
 
 .form-div label {
   font-weight: 600;
@@ -404,7 +431,7 @@ em {
   border-radius: 6px;
   transition: .4s ease-in;
   filter: drop-shadow(4px 4px 10px rgb(74, 136, 250));
-  animation: pesovolante .3s ease-in 20 backwards;
+  animation: pesovolante .3s ease-in infinite backwards;
   
   
   
@@ -471,7 +498,7 @@ h5 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 7rem;
+  margin-left: 5.5rem;
   padding: 0 2rem;
   gap: 0.5rem;
 }
@@ -479,6 +506,7 @@ h5 {
   font-size: 4.5rem;
   color: #efefef;
   text-align: left;
+  padding-top: 2rem;
 }
 
 strong {
@@ -498,6 +526,7 @@ strong {
   align-items: center;
   gap: 1.5rem;
   padding-bottom: 2rem;
+  margin-right: 4rem;
   
 }
 
@@ -679,20 +708,21 @@ p.difficult {
 
 .big-card-container .edit-btn{
   padding: 0.85rem 2rem;
-  margin-top: 1.5rem;
-  border-radius: 100px;
+  border-radius: 11px;
+  width: 250px;
   border: none;
   background-color: #4A88FA;
   font-size: 1rem;
   color: #efefef;
   font-weight: 900;
   cursor: pointer;
-  filter: drop-shadow(0px 0px 10px #4A88FA );
+  filter: drop-shadow(0px 0px 7px #4A88FA );
   transition: all .1s ease-in-out;
 }
 
 .big-card-container .edit-btn:hover {
   border-radius: 6px;
+  background-color: cadetblue;
 }
 
 .big-card-container img {
@@ -714,7 +744,7 @@ p.difficult {
   border-radius: 21px;
   background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/218fc872735831.5bf1e45999c40.gif");
   background-size: cover;
-  filter: drop-shadow(4px 4px 12px rgb(74, 136, 250));
+  filter: drop-shadow(0px 0px 10px rgb(74, 136, 250));
   min-width: 1000px;
   position: relative;
   transition: all .75s ease-out;
@@ -734,6 +764,7 @@ p.difficult {
 
 .single-card:hover{
   background-position: 225px;
+  /* filter: drop-shadow(0px 0px 24px rgb(74, 136, 250)); */
   
 }
 
@@ -762,7 +793,7 @@ p.single-card-created {
   padding-right: 1rem;
   padding-bottom: 1rem;
   font-weight: 300;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .single-card-name {
@@ -825,6 +856,7 @@ p.single-card-created {
   transform: translate(-40%, -50%);
   z-index: 1200;
   background-color: #4A88FA;
+
 }
 
 
@@ -923,12 +955,14 @@ p.single-card-created {
   position: fixed;
   top: 50%;
   left: 50%;
+  border: none;
   transform: translate(-50%, -50%);
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
   width: 550px;
   height: 600px;
-  background-color: #4A88FA;
+  background-image: linear-gradient(to top, #2e1097, #2b29ab, #263dbe, #1e50d1, #1063e3);
+  
  
 } 
 
@@ -1022,8 +1056,30 @@ p.single-card-created {
   justify-content: center;
   position: relative;
   gap: 1rem;
-  background-image: url("/public/protrainer.webp");
+  background-image: url("/protrainer.webp");
   background-size: cover;
+  animation: pro 1s ease-in 1 forwards;
+}
+
+@keyframes pro {
+  100% {
+    background-position: 500px;
+  }
+
+}
+
+.hidden-pro-info {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: hidden 1.6s ease-in-out 1 forwards;
+}
+
+@keyframes hidden {
+  100% {
+    opacity: 1;
+  }
 }
 
 .pro-card-overlay{
@@ -1035,7 +1091,7 @@ p.single-card-created {
   height: 100%;
   border-radius: 16px;
   z-index: -2;
-  background-color: rgba(0, 0, 0, 0.481);
+  background-color: rgba(0, 0, 0, 0.600);
 }
 
 .pro-card-overlay:hover {
@@ -1087,11 +1143,12 @@ p.single-card-created {
 }
 
 p.pro-card-notes {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .pro-card-h1 {
   font-size: 3rem;
+  padding-bottom: -2rem;
 }
 
 #pro-card-h1-strong {
@@ -1117,8 +1174,56 @@ p.pro-card-notes {
   color: red;
 }
 
+/* Error 404 page */ 
 
+.div-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
 
+.div-404 .img-404 {
+  width: 600px;
+  border-radius: 21px;
+  object-fit: cover;
+}
+
+.social-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 3rem;
+}
+.social-container h2 {
+  font-size: 2.5rem;
+  color: #4A88FA;
+  font-weight: 900;
+}
+.social-icons-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.social-icons {
+  color: white;
+  font-size: 5rem;
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 8px #4A88FA);
+}
+.social-icons:hover {
+  color: #4A88FA;
+}
+.benvenuto {
+  font-style: italic;
+  padding-bottom: 0.7rem;
+  font-size: 0.9rem;
+}
 
 
 
@@ -1128,7 +1233,42 @@ p.pro-card-notes {
 
 /* Laptop media queries */
 
-@media screen and (max-width: 1660px) {
+ @media screen and (max-width: 1697px){
+  .hero-h1 {
+    font-size: 5.5rem;
+  }
+  .card {
+    width: 270px;
+  }
+  .create {
+    width: 260px;
+  }
+   .card-container {
+    margin-right: .3rem;
+  } 
+  .your-gymcards-div {
+    margin-left: 3rem;
+  }
+  #your-card-h1 {
+    display: none;
+  }
+  .about-us p {
+    text-align: center;
+  }
+  .pro-card-h1 {
+    font-size: 2rem;
+  }
+  #pro-card-h1-strong {
+    font-size: 2rem;
+  }
+} 
+
+
+
+
+
+
+@media screen and (max-width: 1600px) {
   
   nav{
     height: 450px;
@@ -1214,10 +1354,11 @@ p.pro-card-notes {
     font-size: 2rem;
   }
   .user-form-container{
-    top: 50px;
+    top: 35px;
   }
   .your-gymcards-div {
     margin-left: 5.5rem;
+    padding-top: 2.5rem;
   }
   .your-gymcards-div p {
     padding-right: 3.5rem;
@@ -1226,6 +1367,7 @@ p.pro-card-notes {
   .your-gymcards {
     font-size: 4rem;
     font-weight: 800;
+    padding-top: unset;
   }
   .your-gymcards strong {
     font-size: 4rem;
@@ -1250,6 +1392,12 @@ p.pro-card-notes {
     padding: 1rem 1rem;
     gap: 1rem;
   }
+  .card {
+    width: 280px;
+  }
+  .create {
+    width: 280px;
+  }
   #your-card-h1 {
     display: none;
   }
@@ -1271,10 +1419,80 @@ p.pro-card-notes {
       opacity: 1;
   }
   }
+  .div-404 .img-404 {
+    width: 450px;
+    object-fit: cover;
+  }
 }
 
 
+@media screen and (max-width: 1366px) {
+  .card-container {
+    margin-right: .15rem;
+  }
+  .card {
+    width: 250px;
+  }
+  .create{
+    width: 260px;
+  }
+  .pro-card {
+    width: 335px;
+    height: 450px;
+  }
+} 
+
+
+
+
+
+@media screen and (max-width: 1280px){
+  .hero-h1 {
+    font-size: 4rem;
+  }
+  .pro-card {
+    width: 310px;
+  }
+
+}
+
+
+
 /* Ipad && Tablet Media Queries */
+
+@media screen and (max-width: 1180px) and (orientation: landscape) {
+  nav {
+    margin-top: 5rem;
+  }
+  .hero-h1 {
+    font-size: 3.5rem;
+  }
+  .hometext-container p {
+    font-size: 1.6rem;
+  }
+  .hero-btn {
+    margin-top: .15rem;
+  }
+  main {
+    margin-left: 6rem;
+  }
+  .procard-container {
+    padding-left: 7rem;
+  }
+  .pro-card {
+    width: 300px;
+    padding: 0 0.5rem;
+  }
+  .pro-card-h1 {
+    padding-top: 3rem;
+  }
+  .big-card-container {
+    padding-left: 4rem;
+    
+  }
+}
+
+
 
 @media screen and (max-width: 1024px){
   nav {
@@ -1403,6 +1621,7 @@ p.pro-card-notes {
     margin-top: 1rem;
     flex-direction: column;
     padding-top: 4.5rem;
+    animation: hero 1s ease-out 1 forwards;
   }
   .hometext-container {
     margin-left: unset;
@@ -1410,8 +1629,8 @@ p.pro-card-notes {
     
   }
   .hero-container h5 {
+    font-size: 1.4rem;
     text-align: center;
-    font-size: 1.8rem;
   }
   .hometext-container p {
     font-size: 1.2rem;
@@ -1419,13 +1638,14 @@ p.pro-card-notes {
     text-align: center;
   }
   .hero-h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     text-align: unset;
     filter: unset;
     text-align: center;
   }
   .hero-btn {
     padding-top: 8rem;
+    animation: hero-btn 1.1s ease-out 1 forwards;
     
   }
   .hero-btn button {
@@ -1470,20 +1690,19 @@ p.pro-card-notes {
   }
   #create-modal-container {
     width: 350px;
-    height: auto;
+    height: 80%;
     left: 40%;
     margin: .3rem;
   }
   .single-card {
     flex-direction: column;
-    min-width:auto ;
     padding-bottom: 2rem;
     gap: .7rem;
-    max-width: 398px;
+    max-width: 350px;
+    min-width: 320px;
     background-position: center;
   }
   
-
   .single-card img {
     display: none;
   }
@@ -1495,19 +1714,25 @@ p.pro-card-notes {
   .single-card p {
     word-wrap: break-word;
     max-width: 300px;
+    font-size: 1.2rem;
   }
-  .edit-btn-div {
-    padding-bottom: 6rem;
-  }
+ 
   .single-card-name {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .single-gymcard-strong {
+    font-size: 1.2rem;
+  }
+  #single-card-exercises {
+    font-size: 1rem;
   }
 
   #strong-exercises {
     font-size: 1.5rem;
   }
   .edit-form {
-    width: 350px;
+    width: 100%;
+    height: 100%;
   }
   .procard-container {
     flex-direction: column;
@@ -1516,23 +1741,23 @@ p.pro-card-notes {
   .pro-card {
     width: 350px;
     height: 560px;
-    background-image: url("protrainer.webp");
+    background-image: url("/protrainer.webp");
     background-size: cover;
+    pointer-events: none;
     
   }
-  .pro-card-overlay:hover {
-    background-color: rgba(0,0,0,0.481) ;
-  }
+
+
   .pro-card-h1 {
-    font-size: 1.8rem;
-    padding-top: 1.5rem;
+    font-size: 1.6rem;
+    padding: 1.5rem 1rem;
     margin-top: unset;
   }
   #pro-card-h1-strong {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .about-us {
-    padding-bottom: 6rem;
+    padding-bottom: 5rem;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 3rem;
@@ -1567,6 +1792,51 @@ p.pro-card-notes {
     font-size: 1rem;
     padding: 0.3rem;
   }
+  .div-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    gap: 1rem;
+  }
+  
+  .div-404 .img-404 {
+    width: 600px;
+    border-radius: unset;
+    object-fit: cover;
+  }
+  .benvenuto {
+    display: none;
+  }
+  .div-btn-login-signup {
+    gap: 0.5rem;
+    padding-top: .25rem;
+  }
+  .login-signup-btn {
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+  }
+  .social-container {
+    padding-top: unset;
+    
+  }
+  .card {
+    width: 320px;
+    height: 450px;
+  }
+  .create {
+    width: 320px;
+    height: 450px;
+  }
+  .error-dont-match {
+    text-align: center;
+  }
+  p.single-card-created {
+    font-size: 1rem;
+  }
+  
+
 }
 
 

@@ -129,10 +129,10 @@ export const CreateModal = ({ openModal, setOpenModal, onCardCreated})=> {
         <label>Notes</label>
         <textarea 
         name=""
-        placeholder="Enter a maximum of 150 characters"
+        placeholder="Enter a maximum of 75 characters"
         id="" 
-        cols="40" 
-        rows="5"
+        cols="30" 
+        rows="3"
         value={data.notes}
         type="text"
         onChange={(e) => setData((curr) => ({
