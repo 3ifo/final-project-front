@@ -275,6 +275,23 @@ nav ul {
   gap: 1rem;
 }
 
+nav ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li h6 {
+  margin-top: -.5rem;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+nav:hover h6 {
+  opacity: 1;
+}
+
 .navbar-icons {
   color: white;
   font-size: 3.5rem;
@@ -1240,6 +1257,9 @@ p.pro-card-notes {
   .card {
     width: 270px;
   }
+  .navbar-icons {
+    font-size: 3rem;
+  }
   .create {
     width: 260px;
   }
@@ -1281,6 +1301,9 @@ p.pro-card-notes {
   .pro-card-h1 {
     font-size: 2.2rem;
     margin-top: -2rem;
+  }
+  .navbar-icons {
+    font-size: 3rem;
   }
   .pro-card {
     width: 350px;
@@ -1440,6 +1463,9 @@ p.pro-card-notes {
     width: 335px;
     height: 450px;
   }
+  .navbar-icons {
+    font-size: 3rem;
+  }
 } 
 
 
@@ -1452,6 +1478,9 @@ p.pro-card-notes {
   }
   .pro-card {
     width: 310px;
+  }
+  .navbar-icons {
+    font-size: 3rem;
   }
 
 }
@@ -1489,6 +1518,9 @@ p.pro-card-notes {
   .big-card-container {
     padding-left: 4rem;
     
+  }
+  nav ul li h6 {
+    display: none;
   }
 }
 
@@ -1566,6 +1598,9 @@ p.pro-card-notes {
   }
   .single-card {
     min-width: 280px;
+  }
+  nav ul li h6 {
+    display: none;
   }
 }
 
@@ -1834,6 +1869,9 @@ p.pro-card-notes {
   }
   p.single-card-created {
     font-size: 1rem;
+  }
+  nav ul li h6 {
+    display: none;
   }
   
 

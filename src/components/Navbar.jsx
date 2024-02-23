@@ -28,22 +28,27 @@ const Navbar = () => {
           <>
             <li>
               <NavLink to="/"><span title="Home" className="navbar-icons"><FaHome /></span></NavLink>
+              <h6>Home</h6>
             </li>
 
             <li>
               <NavLink to="mygymcards"> <span title="My gym cards" className="navbar-icons"><IoFitness /></span></NavLink>
+              <h6>My Cards</h6>
             </li>
 
             <li>
               <NavLink to="gymcardspro"><span title="Recommended gym cards" className="navbar-icons"><GiHealthPotion /></span></NavLink>
+              <h6>PRO Cards</h6>
             </li>
 
             <li>
               <NavLink to="aboutus"><span title="About us" className="navbar-icons"><RiInformationFill /></span></NavLink>
+              <h6>About Us</h6>
             </li>
 
             <li>
               <NavLink to="contactus"><span title="Contact us" className="navbar-icons"><BiSolidContact /></span></NavLink>
+              <h6>Contact</h6>
             </li>
 
           </>
