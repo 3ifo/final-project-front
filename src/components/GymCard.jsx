@@ -67,6 +67,9 @@ const GymCard = () => {
 
         <h1 id='your-card-h1'>Your Card </h1>
       {card && (
+        <div className='prova-palestra'>
+
+        
         <div className='big-card-container'>
           
           <div className='single-card'>
@@ -108,11 +111,11 @@ const GymCard = () => {
           <label>Series</label>
           <input name="series" placeholder="Series" value={editCard.series} onChange={handleEditChange} />
           <label >Type of Training</label>
-          <input name="type" placeholder="Type (Cardio or Bulk)" value={editCard.type} onChange={handleEditChange} />
+          <select name="type" id="" value={editCard.type} onChange={handleEditChange} ><option value="cardio">Cardio</option> <option value="bulk">Bulk</option></select>
           <label>Duration</label>
           <input name="duration" placeholder="Duration" value={editCard.duration} onChange={handleEditChange} />
           <label>Difficult</label>
-          <input name="difficult" placeholder="Difficulty (Write easy, medium, hard)" value={editCard.difficult} onChange={handleEditChange} />
+          <select name="difficult" value={editCard.difficult} onChange={handleEditChange}  id=""><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select>
           <label>IMG</label>
           <input name="image" placeholder="Insert img link" value={editCard.image} onChange={handleEditChange} />
           <label>Notes</label>
@@ -123,6 +126,7 @@ const GymCard = () => {
                 </div>
             </dialog>
           )}
+        </div>
         </div>
       )}
     </>

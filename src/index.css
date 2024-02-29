@@ -104,7 +104,7 @@ p {
   flex-direction: column;
   align-items: center;
   position: relative;
-  top: 100px;
+  top: 80px;
 }
 
 .user-form-container form {
@@ -118,7 +118,6 @@ p {
   padding: 2rem;
   border: .5px solid white;
   width: 350px;
-  height: 400px;
   border-radius: 6px;
   position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0px 10px cornflowerblue;
@@ -310,11 +309,16 @@ nav:hover h6 {
 
 .logout-div {
   position: absolute;
-  top: 0;
   right: 0;
-  padding: 1rem 1.5rem;
+  top: 0;
+  padding: 1rem 1rem;
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
 }
+
 
 .logout-div button {
   padding: 0.65rem 1.5rem;
@@ -327,6 +331,7 @@ nav:hover h6 {
   filter: drop-shadow(0px 0px  15px red);
   transition: all .15s ease-out;
 }
+
 
 .logout-div button:hover {
   background-color: rgb(222, 24, 10);
@@ -495,12 +500,15 @@ h3 {
   display: flex;
   justify-content: left;
   align-items: center;
+  position: sticky;
+  top: 0;
   
 }
 
 .logo-div img {
   width: 100px;
   cursor: pointer;
+ 
 }
 
 h5 {
@@ -1001,6 +1009,14 @@ p.single-card-created {
   background-color: rgba(211, 211, 211, 0.303);
 }
 
+.edit-form select {
+  height: 25px;
+  background-color: rgba(211, 211, 211, 0.303);
+  outline: none;
+  border: none;
+  padding: 0.15rem 0.3rem;
+}
+
 .delete-confirm-modal {
   position: absolute;
   bottom: 0;
@@ -1061,6 +1077,7 @@ p.single-card-created {
   align-items: center;
   gap: 2.5rem;
   padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pro-card {
@@ -1073,7 +1090,7 @@ p.single-card-created {
   justify-content: center;
   position: relative;
   gap: 1rem;
-  background-image: url("/protrainer.webp");
+  background-image: url("protrainer.webp");
   background-size: cover;
   animation: pro 1s ease-in 1 forwards;
 }
@@ -1237,9 +1254,12 @@ p.pro-card-notes {
   color: #4A88FA;
 }
 .benvenuto {
-  font-style: italic;
-  padding-bottom: 0.7rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  display: flex;
+  gap: .3rem;
+  color: #4A88FA;
+  cursor: pointer;
+  font-weight: 800;
 }
 
 
@@ -1283,8 +1303,22 @@ p.pro-card-notes {
   }
 } 
 
+.cardio-workouts {
+  font-size: 3rem;
+  padding-top: 1.5rem;
+}
 
+.cardio-span {
+  color: darkgoldenrod;
+}
 
+.strenght-span {
+  color: rgb(222, 24, 10);
+}
+
+.cardio {
+  background-image: url("/cardio.webp");
+}
 
 
 
@@ -1377,7 +1411,7 @@ p.pro-card-notes {
     font-size: 2rem;
   }
   .user-form-container{
-    top: 35px;
+    top: 10px;
   }
   .your-gymcards-div {
     margin-left: 5.5rem;
@@ -1700,6 +1734,7 @@ p.pro-card-notes {
   }
   .logo-div {
     padding-left: .7rem;
+    position: unset;
     
   }
   main {
@@ -1784,12 +1819,12 @@ p.pro-card-notes {
 
 
   .pro-card-h1 {
-    font-size: 1.6rem;
+    font-size: 2.8rem;
     padding: 1.5rem 1rem;
     margin-top: unset;
   }
   #pro-card-h1-strong {
-    font-size: 1.6rem;
+    font-size: 2.8rem;
   }
   .about-us {
     padding-bottom: 5rem;
@@ -1872,6 +1907,18 @@ p.pro-card-notes {
   }
   nav ul li h6 {
     display: none;
+  }
+  .cardio {
+    background-image: url("cardio.webp");
+  }
+  .cardio-span {
+    font-size: 2.5rem;
+  }
+  .strenght-span {
+    font-size: 2.5rem;
+  }
+  .cardio-workouts {
+    font-size: 2.5rem;
   }
   
 

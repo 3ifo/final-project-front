@@ -19,14 +19,14 @@ export const UserProvider = ({ children }) => {
     setError(message);
   };
 
-  const signUp = async (email, password) => {
+  const signUp = async (username, email, password) => {
     if (loading) return;
 
     setError(null);
     setLoading(true);
 
     try {
-      const body = { email, password };
+      const body = { username, email, password };
       const { data } = await axios.post(`${VITE_API_URL}/authentication/signup`, body);
       localStorage.setItem('token', data.token); 
       setUser(data.user); 

@@ -4,7 +4,7 @@ import { FaHome } from "react-icons/fa";
 import { IoFitness } from "react-icons/io5";
 import { RiInformationFill } from "react-icons/ri";
 import { BiSolidContact } from "react-icons/bi";
-import { LiaQuestionSolid } from "react-icons/lia";
+import { FaRegUser } from "react-icons/fa";
 import { GiHealthPotion } from "react-icons/gi";
 
 
@@ -56,6 +56,7 @@ const Navbar = () => {
       </ul>
     </nav>
     <div className="logout-div">
+    {user && <p className="benvenuto"><FaRegUser />{user && user.username}</p>}
               <button onClick={()=> {
                 logOut();
                 navigate("/login")

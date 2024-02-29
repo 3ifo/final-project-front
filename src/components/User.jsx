@@ -14,6 +14,7 @@ export default function ({ type }) {
   const { signUp, logIn, error, loading } = useUser();
 
   const [formData, setFormData] = useState({
+    username:"",
     email: "",
     password: "",
     confirmPassword: "",
@@ -27,7 +28,7 @@ export default function ({ type }) {
   const signUser = (e) => {
     e.preventDefault();
     setConfirmPassError(null);
-    const { email, password, confirmPassword } = formData;
+    const { username, email, password, confirmPassword } = formData;
     if (type === "login") {
       logIn(email, password);
     } else {
@@ -46,7 +47,7 @@ export default function ({ type }) {
         return;
       }
       
-      signUp(email, password);
+      signUp(username,email, password);
     }
   };
 
@@ -56,6 +57,16 @@ export default function ({ type }) {
       
       <form onSubmit={signUser}>
       <h1>{title}</h1>
+      {type === "signup" && <div className="form-div">
+          <label>Username</label>
+          <input
+            onChange={(e) => changeData("username", e.target.value)}
+            value={formData.username}
+            required
+            type="text"
+            
+          />
+          </div>}
         <div className="form-div">
           <label>Email</label>
           <input
@@ -83,6 +94,7 @@ export default function ({ type }) {
         </div>
         {type === "signup" && (
           <>
+          
           <div className="form-div">
             <label>Confirm Password</label>
             <input

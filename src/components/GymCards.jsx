@@ -73,6 +73,7 @@ const handleDelete = () => {
 };
 
 
+
   return (
     <main>
         {(openModal || isConfirmModalVisible !== null) && <div className="backdrop show"></div>}
